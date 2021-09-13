@@ -17,10 +17,6 @@ namespace Writter_Tests
         {
             
 
-            IFormatable formater = GetFormater();
-            var writer = new Writer(IFormatable format);
-            var res = writer.Write();
-
         }
     }
 }

@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Writter_Kata.Enum
 {
-    public enum FormatType
+    public enum StorageEnum
     {
-        xml = 3,
-        txt = 2,
-        json = 1,
-        yml = 4
+       cloud,
+       format
     }
 }

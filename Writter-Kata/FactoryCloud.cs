@@ -7,11 +7,11 @@ using Writter_Kata.Models;
 
 namespace Writter_Kata
 {
-    class Factory : IFactory
+    class FactoryCloud : IFactory
     {
         IFormatable formater;
         private readonly Dictionary<FormatType, IFormatable> _formatList;
-        public Factory(Dictionary<FormatType, IFormatable> formatList)
+        public FactoryCloud(Dictionary<FormatType, IFormatable> formatList)
         {
             _formatList = formatList;
         }
@@ -21,5 +21,9 @@ namespace Writter_Kata
             return new Writer(formater);
         }
 
+        public Writer GetWritter(FormatType formater)
+        {
+            return new Writer(_formatList[formater]);
+        }
     }
 }

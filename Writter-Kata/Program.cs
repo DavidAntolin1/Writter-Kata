@@ -8,6 +8,8 @@ namespace Writter_Kata
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Quieres escribir en un archivo o en la nube: format/cloud");
+            string storage = Console.ReadLine();
             Console.WriteLine("Introduzca el archivo que desea:");
             string name = Console.ReadLine();
             Console.WriteLine(@"Introduzca el formato en que desea el archivo: 
@@ -16,21 +18,12 @@ namespace Writter_Kata
     3-xml
     4-yml");
             int choice;
-            FormatType type = new FormatType();
             Int32.TryParse(Console.ReadLine(), out choice);
-            switch (choice)
-            {
-                case 1: type = FormatType.json;break;
-                case 2: type = FormatType.txt; break;
-                case 3: type = FormatType.xml; break;
-                case 4: type = FormatType.yml; break;
+            
+            Container container = new Container(storage);
 
-                default:
-                    Console.WriteLine("Formato no válido");
-                    break;
-            }
-            var container = new Container();
-            container.Factory.GetWritter(type).Write(name);
+            var writter = container.Factory.CreateWrite((FormatType)choice);
+            writter.Write(name, (FormatType)choice, storage);
         }
     }
 }

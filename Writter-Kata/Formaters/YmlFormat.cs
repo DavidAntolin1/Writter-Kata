@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Writter_Kata.Enum;
 using Writter_Kata.Interfaces;
 
 namespace Writter_Kata.Formaters
@@ -9,11 +10,11 @@ namespace Writter_Kata.Formaters
     {
         public string GetContent()
         {
-            return "Contenido en formato yml";
+            return "Archivo en formato Yml";
         }
         public string GetExtension()
         {
-            return "yml";
+            return FormatType.yml.ToString();
         }
     }
 }

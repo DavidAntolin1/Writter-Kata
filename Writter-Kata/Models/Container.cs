@@ -16,10 +16,19 @@ namespace Writter_Kata.Models
             {FormatType.xml, new XmlFormat() },
             {FormatType.yml, new YmlFormat() }
         };
-        public Factory Factory;
-        public Container()
+        public IFactory Factory;
+
+        public Container(string storageEnum)
         {
-            Factory = new Factory(FormatList);
+            if (storageEnum.Equals(StorageEnum.cloud.ToString()))
+            {
+                Factory = new FactoryCloud(FormatList);
+            }
+            else if(storageEnum.Equals(StorageEnum.format.ToString()))
+            {
+                Factory = new Factory(FormatList);
+            }
+            
         }
     }
 }
